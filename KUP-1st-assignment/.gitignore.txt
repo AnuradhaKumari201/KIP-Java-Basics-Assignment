@@ -1,3 +1,0 @@
-/.target
-/.idea
-/.KUP_Assignment1.iml
