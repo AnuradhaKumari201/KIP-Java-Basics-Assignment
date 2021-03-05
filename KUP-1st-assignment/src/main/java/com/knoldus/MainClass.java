@@ -1,49 +1,39 @@
 package com.knoldus;
 
-
-import java.util.*;
-
-
-import java.util.stream.Collectors;
-
-
-
 public class MainClass {
 
     public static void main(String[] args) {
+ 
+        System.out.println("-----------------Condtion-1-------------------");
 
-// Condition -1
-        List<Student> s = Data.studentList().stream().filter(obj -> obj.getSubject().isEmpty())
-                .collect(Collectors.toList());
-
-        List<String> names = new ArrayList<>();
-
-        for (Student t : s) {
-
-            names.add(t.getName());
-
-        }
-        System.out.println(" The students associated with a room that have no subjects =" + names);
+        NoSubjects object = new NoSubjects();
+        System.out.println(object.condition());
 
 
-// Condition -2
 
-        List<List<Student>> t = Data.classList().stream().filter(obj -> obj.getRoomId().equals("xyz")).map(k -> k.getStudentList().get()).collect(Collectors.toList());
+        System.out.println("-----------------Condtion-2-------------------");
 
-        List<List<String>> l = t.get(0).stream().map(a -> a.getSubject().get()).collect(Collectors.toList());
+        ParticularRoomId object1 = new ParticularRoomId();
 
-        Set<String> set = l.
-                stream().flatMap(j -> j.stream()).collect(Collectors.toSet());
-
-        System.out.println("List of unique subjects of the students that has  roomID  \"XYZ\". " + set);
+        System.out.println(object1.condition2());
 
 
-//Condition -3
 
-        List<ClassRoom> res = Data.classList().stream().filter(obj -> obj.getStudentList().isPresent())
-                .collect(Collectors.toList());
 
-        res.forEach(obj -> System.out.println(obj.getRoomId() + " --->  Hello Student"));
+
+
+        System.out.println("-----------------Condtion-3-------------------");
+
+        HasStudent object2 = new HasStudent();
+        object2.condition3();
+
 
     }
+
 }
+
+
+
+
+
+ 
